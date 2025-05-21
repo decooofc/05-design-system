@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20.19.1
 
       - name: Install dependencies
         run: npm ci
@@ -26,5 +26,5 @@ jobs:
       - name: Deploy Storybook
         working-directory: ./packages/docs
         env:
-          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: touch storybook-static/.nojekyll && npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
