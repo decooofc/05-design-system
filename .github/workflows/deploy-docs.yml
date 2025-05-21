@@ -24,8 +24,8 @@ jobs:
         run: npm run build
 
       - name: Deploy Storybook to GitHub Pages
+        run: 
+          npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Or use your own token secret
-        run:
-         npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
 
